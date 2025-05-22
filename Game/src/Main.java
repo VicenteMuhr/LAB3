@@ -23,36 +23,36 @@ class Game{ //Clase Game según lo estipulado por el laboratorio.
                 ", Name='" + Name + "', Price=" + Price + "}";
     }
 }
-class Dataset { //Clase Dataset según lo estipulado por el laboratorio.
+class Dataset{ //Clase Dataset según lo estipulado por el laboratorio.
     ArrayList<Game> Data;
     String sortedByAttribute;
 
-    Dataset(ArrayList<Game> Data) {
+    Dataset(ArrayList<Game> Data){
         this.Data = Data;
         this.sortedByAttribute = null;
     }
-    ArrayList<Game> getGamesByPrice(int price) {
+    ArrayList<Game> getGamesByPrice(int price){
         ArrayList<Game> Results = new ArrayList<>();
 
-        if ("Price".equals(sortedByAttribute)) {
+        if("Price".equals(sortedByAttribute)){
             int index = BinarySearchByPrice(price);
-            if (index != -1) {
+            if(index != -1){
                 int currentIndex = index;
-                while (currentIndex >= 0 &&
-                        Data.get(currentIndex).getPrice() == price) {
+                while(currentIndex >= 0 &&
+                        Data.get(currentIndex).getPrice() == price){
                     Results.add(Data.get(currentIndex));
                     currentIndex--;
                 }
                 currentIndex = index + 1;
-                while (currentIndex < Data.size() &&
-                        Data.get(currentIndex).getPrice() == price) {
+                while(currentIndex < Data.size() &&
+                        Data.get(currentIndex).getPrice() == price){
                     Results.add(Data.get(currentIndex));
                     currentIndex++;
                 }
             }
         } else {
-            for (Game game : Data) {
-                if (game.getPrice() == price) {
+            for(Game game : Data){
+                if(game.getPrice() == price){
                     Results.add(game);
                 }
             }
@@ -417,7 +417,7 @@ class Dataset { //Clase Dataset según lo estipulado por el laboratorio.
         return i + 1;
     }
 }
-class GenerateData { //Clase GenerateData según lo estipulado por el laboratorio.
+class GenerateData{ //Clase GenerateData según lo estipulado por el laboratorio.
     private static final String[] CATEGORIES = {"Action", "Adventure", "RPG",
             "Strategy", "Puzzle", "Sports", "Simulation", "Indie"};
     private static final String[] PREFIXES = {"Epic", "Mystic", "Dark",
@@ -460,10 +460,10 @@ class GenerateData { //Clase GenerateData según lo estipulado por el laboratori
         }
     }
 }
-public class Main {
+public class Main{
     private static final long TIMEOUT_NS = 300L * 1_000_000_000L; //Para medir tiempos
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
     //En caso de querer usar lo experimental, esta sección se puede poner entre /* */
     //para evitar confusiones.
